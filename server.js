@@ -1,13 +1,16 @@
 const express = require('express');
+const db = require('./config/connection');
+const routes = require('./routes');
+
+const PORT = process.env.PORT || 3001;
 const app = express();
-const mongoose = require('./config/connection'); // import your mongoose object
-const UserModel = require('./models/user'); // import your User model
-const ThoughtModel = require('./models/thought'); // import your Thought model
-const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(routes);
+
+db.once('open', () => {
+  app.listen(PORT, () => {
+    console.log(`API server running on port ${PORT}!`);
+  });
 });
-
-
-
