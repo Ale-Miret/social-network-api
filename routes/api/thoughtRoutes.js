@@ -1,26 +1,32 @@
+// Import the express router
 const router = require('express').Router();
 
+// Import controller functions from thoughtController.js
 const {
     getThoughts,
     getSingleThought,
     createThought,
     updateThought,
     deleteThought,
+    createReaction,
+    deleteReaction
   } = require('../../controllers/thoughtController');
   
-  // /api/thoughts
+  // Define routes for the various endpoints
+  // Route for GET request to /api/thoughts
   router.route('/').get(getThoughts);
   
-  // /api/thoughts/:_id
+  // Route for GET request to /api/thoughts/:_id
   router.route('/:_id').get(getSingleThought);
   
-  // /api/thoughts/createthought
+  // Route for POST request to /api/thoughts/createThought
   router.route('/createThought').post(createThought);
   
-  // /api/thoughts/updateThought/:thoughtId
+  // Route for PUT request to /api/thoughts/updateThought/:_id
   router.route('/updateThought/:_id').put(updateThought);
-  
-  // /api/thoughts/deletethought/:_id
+ 
+  // Route for DELETE request to /api/thoughts/deleteThought/:_id
   router.route('/deleteThought/:_id').delete(deleteThought);
   
+  // Export the router
   module.exports = router;
