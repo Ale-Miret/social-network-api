@@ -21,4 +21,5 @@ To use this project, follow these steps:
 * Use Insomnia to test the API routes and functionality.
 
 ## Walkthrough Video
+[Social network API walkthrough.webm](https://user-images.githubusercontent.com/112821785/224522268-4c9eb0cd-520f-4cfe-a118-1f1cc740afef.webm)
 
